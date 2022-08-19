@@ -8,6 +8,9 @@
 
 
 ```bash
+# 查看當前有哪些 Container
+docker container ls
+
 # 由 image 生成一個 Container 並啟動
 docker container run {image name or id}
 
@@ -31,8 +34,14 @@ docker container rm {container name or id}
     - Image 是一個**唯讀**的模板， Image 只能被拿來使用，不能被編輯，若要更動 Image 的內容，只能透過新建一個。
 
 ```bash
+# 查看當前有哪些 Image
+docker image ls
+
 # 由 image 生成一個 Container 並啟動
 docker container run {image name or id}
+
+# 刪除 Image
+docker image rm {image name or id}
 ```
 
 ![Image](https://miro.medium.com/max/1400/1*NMol4JlirTLiyjfHkuHMGw.png)
