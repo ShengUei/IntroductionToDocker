@@ -56,6 +56,9 @@ docker image rm {image name or id}
 
 ![Image and Container - 2](https://miro.medium.com/max/1400/1*1z_AR2OsoVoKfbvA3nCx6Q.png)
 
+![Image and Container - 3](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ea10dafdcdc454eafd9f92456db1578~tplv-k3u1fbpfcp-watermark.image)
+
 Reference:
 1. https://www.docker.com/resources/what-container/
 2. https://azole.medium.com/docker-container-%E5%9F%BA%E7%A4%8E%E5%85%A5%E9%96%80%E7%AF%87-1-3cb8876f2b14
+3. https://juejin.cn/post/6903436564689485832
