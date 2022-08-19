@@ -8,14 +8,20 @@
 
 
 ```bash
-# 啟動 Container
-docker container start
+# 由 image 生成一個 Container 並啟動
+docker container run {image name or id}
+
+# 啟動已停止的 Container
+docker container start {container name or id}
 
 # 停止 Container
-docker container stop
+docker container stop {container name or id}
 
 # 重新啟動 Container
-docker container restart
+docker container restart {container name or id}
+
+# 刪除已停止的 Container
+docker container rm {container name or id}
 ```
 
 
