@@ -33,6 +33,7 @@ docker container rm {container name or id}
     - Image 是產生 Container 的來源，以物件導向的觀念來看， Image 就是 Class ， 而 Container 就是 Object。
     - Image 是一個**唯讀**的模板， Image 只能被拿來使用，不能被編輯，若要更動 Image 的內容，只能透過新建一個。
     - 每一個 Container 其實是由好幾層 image 由下而上層層堆疊起來的，所以我們能夠透過啟動 Container 後，在裡頭進行新增或編輯，並透過該 Container 來生成一個新的 Image。
+    - 假設今天啟動一個 Container 並在其中建立一個文件檔，並透過該 Container 輸出成 Image 讓該文件檔得以保存，若突然需要編輯該文件檔時，透過新創的 Image 來去生成 Container 的話，雖然該文件當確實存在且可以被編輯，但由於 Image 是**唯讀**的，所以其實該文件檔不是編輯同一份，而是 Docker 從 Image 中複製一份新的文件檔到**可寫層**來進行編輯的，所以這樣會造成 Image 日漸肥大的問題。
     - Image 是**唯讀**的模板，讓 Container 具有重複使用的便利性以及一致性。
 
 ```bash
