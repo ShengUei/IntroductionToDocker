@@ -30,6 +30,10 @@ docker container rm {container name or id}
     - Image 是產生 Container 的來源，以物件導向的觀念來看， Image 就是 Class ， 而 Container 就是 Object。
     - Image 是一個**唯讀**的模板， Image 只能被拿來使用，不能被編輯，若要更動 Image 的內容，只能透過新建一個。
 
+```bash
+# 由 image 生成一個 Container 並啟動
+docker container run {image name or id}
+```
 
 ![Image](https://miro.medium.com/max/1400/1*NMol4JlirTLiyjfHkuHMGw.png)
 
