@@ -64,6 +64,11 @@ docker image rm {image name or id}
     - [DockerHub 官網](https://hub.docker.com/) 
 
 ```bash
+# 從 DockerHub 下載 Image
+docker image pull {image name}
+
+# 上傳 Image 到 DockerHub
+docker image push {image name}
 ```
 
 
