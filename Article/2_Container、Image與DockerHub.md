@@ -67,11 +67,14 @@ docker image rm {image name or id}
 # 從 DockerHub 下載 Image
 docker image pull {image name}
 
-# 要把 Image Push 到 DockerHub 上，需先在 Image 加上 tag
-docker image tag {source image name} {target image tag}
+# 要把 Image Push 到 DockerHub 上，需先在 Image 加上 tag(加上自己的 DockerHub 帳號)
+docker image tag {source image name} {DockerHub username/target image name}
+
+# 登入 DockerHub
+docker login
 
 # 上傳 Image 到 DockerHub
-docker image push {image name}
+docker image push {DockerHub username/image name}
 ```
 
 
