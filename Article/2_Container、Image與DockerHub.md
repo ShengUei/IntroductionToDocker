@@ -58,6 +58,10 @@ docker image rm {image name or id}
 
 ![Image and Container - 3](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ea10dafdcdc454eafd9f92456db1578~tplv-k3u1fbpfcp-watermark.image)
 
+- DockerHub
+    - Docker 的核心是 Container ， 而 Container 來自 Image ， 但 Image 來自哪?
+    - 第一個 Image 一定來自 Docker 官方，而 DockerHub 就是 Docker 官方提供的一個開源平台，向所有人提供 Image 也讓任何人可以自由提供自己的 Image 。 
+
 Reference:
 1. https://www.docker.com/resources/what-container/
 2. https://azole.medium.com/docker-container-%E5%9F%BA%E7%A4%8E%E5%85%A5%E9%96%80%E7%AF%87-1-3cb8876f2b14
