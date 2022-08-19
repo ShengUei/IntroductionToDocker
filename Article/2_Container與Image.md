@@ -4,6 +4,19 @@
     - Container 是 Docker 最重要的核心， Docker 透過 Container 技術來建立一個獨立且隔離的空間，在這個空間中可以安裝任何的程式，類似於一臺新的虛擬主機。
     - Container 是 Linux 系統的一個技術(利用 namespace 與 cgroup 來達成隔離與資源限制)，而 Docoker 就是基於該技術，去利用一套快速且方便的方法來建立 Container ，所以執行 Docker 一定要在 Linux 系統下才可以運作。
     - 由於 Container 就是一臺虛擬主機，所以可以在裡頭安裝各式各樣的程式，例如安裝 Ubuntu 、 Tomcat 與 MySQL 在同一個 Container 裡，或是 Ubuntu 、 Tomcat 與 MySQL 分別安裝在不同的 Container 中，透過 Container 的虛擬網路進行相互溝通。
+    - 一個 Container 就是一臺虛擬主機，所以當 Container 被刪除了，其內部所以的資料就都消失了。
+
+
+```bash
+# 啟動 Container
+docker container start
+
+# 停止 Container
+docker container stop
+
+# 重新啟動 Container
+docker container restart
+```
 
 
 ![Container](https://www.docker.com/wp-content/uploads/2021/11/docker-containerized-appliction-blue-border_2.png)
