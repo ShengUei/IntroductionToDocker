@@ -32,6 +32,7 @@ docker container rm {container name or id}
 - Image:
     - Image 是產生 Container 的來源，以物件導向的觀念來看， Image 就是 Class ， 而 Container 就是 Object。
     - Image 是一個**唯讀**的模板， Image 只能被拿來使用，不能被編輯，若要更動 Image 的內容，只能透過新建一個。
+    - 每一個 Container 其實是由好幾層 image 由下而上層層堆疊起來的。
 
 ```bash
 # 查看當前有哪些 Image
