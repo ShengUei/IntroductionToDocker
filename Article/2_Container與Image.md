@@ -38,7 +38,10 @@ docker container rm {container name or id}
 # 查看當前有哪些 Image
 docker image ls
 
-# 由 image 生成一個 Container 並啟動
+# 由現有的 Container 來去生成一個新的 Image
+docker container commit {container name or id}
+
+# 由 Image 生成一個 Container 並啟動
 docker container run {image name or id}
 
 # 刪除 Image
