@@ -24,9 +24,18 @@ docker container restart {container name or id}
 docker container rm {container name or id}
 ```
 
-
 ![Container](https://www.docker.com/wp-content/uploads/2021/11/docker-containerized-appliction-blue-border_2.png)
 
+- Image:
+    - Image 是產生 Container 的來源，以物件導向的觀念來看， Image 就是 Class ， 而 Container 就是 Object。
+    - Image 是一個**唯讀**的模板， Image 只能被拿來使用，不能被編輯，若要更動 Image 的內容，只能透過新建一個。
+
+
+![Image](https://miro.medium.com/max/1400/1*NMol4JlirTLiyjfHkuHMGw.png)
+
+![Image and Container - 1](https://miro.medium.com/max/1400/1*l96m5V6LGI1XRM9mM3zk8Q.png)
+
+![Image and Container - 2](https://miro.medium.com/max/1400/1*1z_AR2OsoVoKfbvA3nCx6Q.png)
 
 Reference:
 1. https://www.docker.com/resources/what-container/
