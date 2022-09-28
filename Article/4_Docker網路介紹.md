@@ -1,8 +1,8 @@
 # Docker網路介紹
 
 ### Docker提供幾種 Network driver 可以使用:
-* bridge
-* host
+* bridge(*常用*)
+* host(*常用*)
 * none
 * overlay
 * ipvlan
