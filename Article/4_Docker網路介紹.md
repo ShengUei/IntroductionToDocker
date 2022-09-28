@@ -46,6 +46,9 @@ docker container run -dit --name alpine2 alpine ash
 docker network inspect bridge
 
 # result
+# host 連到 bridge 的 IP 為 172.17.0.1
+# 在 bridge 中 alpine1 分配到的 IP 為 172.17.0.2
+# 在 bridge 中 alpine2 分配到的 IP 為 172.17.0.3
 [
     {
         "Name": "bridge", # docker network 的名字
