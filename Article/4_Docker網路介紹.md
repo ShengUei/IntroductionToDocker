@@ -43,7 +43,8 @@ docker container run -dit --name alpine1 alpine ash
 docker container run -dit --name alpine2 alpine ash
 
 # 查看 bridge 的網路資訊(docker 的 default bridge 名字為 bridge) 
-docker network inspect bridge # docker network inspect network-name
+# docker network inspect network-name
+docker network inspect bridge
 
 # result
 # host 連到 bridge 的 IP 為 172.17.0.1
