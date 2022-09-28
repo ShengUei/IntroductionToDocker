@@ -29,6 +29,7 @@ docker container run --name webserver -d -p 9090:80 nginx
 # --name 自定義 container 名字
 # -d(--detach) 讓 container 在背景執行
 # -p 9090:80 指定 host 的 9090 port 對應到該 cotainer 的 80 port
+
 ````
 
 ![img0](https://miro.medium.com/max/720/1*6xUdGsh3ALVtcfvG5Q7VdQ.png)
@@ -103,6 +104,7 @@ docker network inspect bridge
         "Labels": {}
     }
 ]
+
 ```
 
 ![img1](https://godleon.github.io/blog/images/docker/docker-bridge-network-1.png)
@@ -127,12 +129,15 @@ PING 172.17.0.3 (172.17.0.3): 56 data bytes
 64 bytes from 172.17.0.3: seq=0 ttl=64 time=0.121 ms
 64 bytes from 172.17.0.3: seq=1 ttl=64 time=0.071 ms
 64 bytes from 172.17.0.3: seq=2 ttl=64 time=0.068 ms
+
 ```
 
 #### 使用自訂的 bridge
 
 ```bash
-docker
+# 建立自己的 network ，並指定 driver 為 bridge ，該 network 命名為 alpine-net
+docker network create --driver bridge alpine-net
+
 ```
 
 ![img2](https://godleon.github.io/blog/images/docker/docker-bridge-network-custom.png)
