@@ -18,7 +18,9 @@ NETWORK ID          NAME                DRIVER              SCOPE
 a1c7b6f80389        bridge              bridge              local
 dc2f51e1056f        host                host                local
 f28460d3a620        none                null                local
+# dokcer 預設有 bridge 、 host 、 none 這三種 network ，且 name 與 driver 相同
 ```
+
 
 ### Host Driver 介紹:
 
