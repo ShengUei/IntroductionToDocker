@@ -13,7 +13,7 @@
 # 顯示當前有哪些 network
 docker network ls
 
-# 
+# result
 NETWORK ID          NAME                DRIVER              SCOPE
 a1c7b6f80389        bridge              bridge              local
 dc2f51e1056f        host                host                local
