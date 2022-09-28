@@ -35,10 +35,14 @@ docker container run --name webserver -d -p 9090:80 nginx
 
 ### Bridge Driver 介紹:
 
+#### 使用 default bridge
 ```bash
+# 啟動兩個 container 分別命名為 alpine1 與 alpine2
+# 在啟動 cotainer 時，若不指定網路， docker 都會自動將其 container 分配到 default bridge 下
 docker container run -dit --name alpine1 alpine ash
 docker container run -dit --name alpine2 alpine ash
 
+# 查看 bridge 的網路資訊(docker 的 default bridge 名字為 bridge) 
 docker network inspect bridge
 
 # result
