@@ -203,7 +203,7 @@ docker network connect bridge alpine4
 # 查看 bridge 的網路資訊
 docker network inspect bridge
 
-#result
+# result
 # bridge 分配到的 IP 為 172.17.0.1
 # 在 bridge 中 alpine3 分配到的 IP 為 172.17.0.2
 # 在 bridge 中 alpine4 分配到的 IP 為 172.17.0.3
@@ -261,14 +261,66 @@ docker network inspect bridge
 ]
 
 
-# 查看 bridge 的網路資訊
+# 查看 alpine-net 的網路資訊
 docker network inspect alpine-net
 
-#result
-# alpine-net 分配到的 IP 為 172.17.0.1
-# 在 alpine-net 中 alpine1 分配到的 IP 為 172.17.0.2
-# 在 alpine-net 中 alpine2 分配到的 IP 為 172.17.0.3
-# 在 alpine-net 中 alpine4 分配到的 IP 為 172.17.0.3
+# result
+# alpine-net 分配到的 IP 為 172.18.0.1
+# 在 alpine-net 中 alpine1 分配到的 IP 為 172.18.0.2
+# 在 alpine-net 中 alpine2 分配到的 IP 為 172.18.0.3
+# 在 alpine-net 中 alpine4 分配到的 IP 為 172.18.0.4
+[
+    {
+        "Name": "alpine-net",
+        "Id": "2575acac8e781004cb0dc5c5b020c0252a4bc4cdf18dfc661fe3ffcde30fd0b2",
+        "Created": "2018-07-09T03:05:05.505539609Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "010ba5c3e71a723f8c980bb00bb87c97bc41b073163415705006ce5d0071e97c": {
+                "Name": "alpine1",
+                "EndpointID": "f1357dd263dea947c4cd203fd8031be40fae4840f6994dd5e11d6790a038569c",
+                "MacAddress": "02:42:ac:12:00:02",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": ""
+            },
+            "83133e6103d63513116e0fb791efea64b016424ca73357ba3fed41b7ea92df95": {
+                "Name": "alpine4",
+                "EndpointID": "cf6bb33270eca6d40d4d953cea49302d210bc8ba995f04cdcf138344d5378d2f",
+                "MacAddress": "02:42:ac:12:00:04",
+                "IPv4Address": "172.18.0.4/16",
+                "IPv6Address": ""
+            },
+            "aecb66274c3b3ec9109ff4eaa582ad4708ed871428d3b4894f9d04330aabcbc4": {
+                "Name": "alpine2",
+                "EndpointID": "28a237e9fe55f133459140c9e5265470e34baeec43c2c0f6c32d5d539b694403",
+                "MacAddress": "02:42:ac:12:00:03",
+                "IPv4Address": "172.18.0.3/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
 
 ```
 
