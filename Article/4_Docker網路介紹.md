@@ -36,8 +36,8 @@ docker container run --name webserver -d -p 9090:80 nginx
 ### Bridge Driver 介紹:
 
 ```bash
-docker run -dit --name alpine1 alpine ash
-docker run -dit --name alpine2 alpine ash
+docker container run -dit --name alpine1 alpine ash
+docker container run -dit --name alpine2 alpine ash
 
 docker network inspect bridge
 
@@ -70,14 +70,14 @@ docker network inspect bridge
         # 該虛擬網卡中各 container 的網路資訊
         "Containers": {
             "16aa4a102b14de3e151cb5e19522925bb4e143034d5b2aac4ce239c79716b703": {
-                "Name": "alpine2",
+                "Name": "alpine2", # container 名字
                 "EndpointID": "4dc3947583ece828dd4371351501e7d0ba9fa149ac5373ea4ddb9466d333b85d",
                 "MacAddress": "02:42:ac:11:00:03",
                 "IPv4Address": "172.17.0.3/16", # alpine2 的 IP
                 "IPv6Address": ""
             },
             "b75464efd30bf09e118450de2abaeb35549e732bac5805671f1e6e97cd970897": {
-                "Name": "alpine1",
+                "Name": "alpine1", # container 名字
                 "EndpointID": "ea0138a2c51812f3f142db086e1690f6696e36ff972c826727be30e3c8b8cb41",
                 "MacAddress": "02:42:ac:11:00:02",
                 "IPv4Address": "172.17.0.2/16", # alpine1 的 IP
