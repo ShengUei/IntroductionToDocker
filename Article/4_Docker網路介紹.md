@@ -107,6 +107,12 @@ docker network inspect bridge
 
 ![img1](https://godleon.github.io/blog/images/docker/docker-bridge-network-1.png)
 
+#### 使用自訂的 bridge
+
+```bash
+docker
+```
+
 ![img2](https://godleon.github.io/blog/images/docker/docker-bridge-network-custom.png)
 
 reference:
