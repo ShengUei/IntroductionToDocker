@@ -4,3 +4,6 @@
 - 為了讓 Container 可以跟主機進行互動，還是要有 OS 系統，由於 Container 的特性，所以不需要安裝完整的 OS ，僅需安裝具基本功能的輕量化 OS (ex: alpine)。
 
 ![Docker vs VM](https://www.oracle.com/a/ocom/img/cc01-what-is-docker-figure1.png)
+
+Reference:
+1. https://www.oracle.com/tw/cloud/cloud-native/container-registry/what-is-docker/
