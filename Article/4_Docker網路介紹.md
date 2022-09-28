@@ -184,6 +184,92 @@ docker network inspect alpine-net
     }
 ]
 
+# 分別建立四個 container 並分配 network
+# alpine1 為 alpine-net
+docker run -dit --name alpine1 --network alpine-net alpine ash
+
+# alpine2 為 alpine-net
+docker run -dit --name alpine2 --network alpine-net alpine ash
+
+# alpine3 為 bridge
+docker run -dit --name alpine3 alpine ash
+
+# alpine4 為 alpine-net
+docker run -dit --name alpine4 --network alpine-net alpine ash
+
+# 額外為 alpine4 增加 bridge
+docker network connect bridge alpine4
+
+# 查看 bridge 的網路資訊
+docker network inspect bridge
+
+#result
+# bridge 分配到的 IP 為 172.17.0.1
+# 在 bridge 中 alpine3 分配到的 IP 為 172.17.0.2
+# 在 bridge 中 alpine4 分配到的 IP 為 172.17.0.3
+[
+    {
+        "Name": "bridge",
+        "Id": "a1c7b6f8038999f034b8e64ae66885fa8094a020a306ce4f5b5692d7230890b0",
+        "Created": "2018-07-09T01:23:03.98371109Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16",
+                    "Gateway": "172.17.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "3c602d26fcdcc8c0145d4d2d159b20b5b760c1b74393c7b5f7be060f4f8822ac": {
+                "Name": "alpine3",
+                "EndpointID": "7bd6ae1d8a28a554f57f9937953716cc5f62ea8bd669fc744d3aeffacf05f3c1",
+                "MacAddress": "02:42:ac:11:00:02",
+                "IPv4Address": "172.17.0.2/16",
+                "IPv6Address": ""
+            },
+            "83133e6103d63513116e0fb791efea64b016424ca73357ba3fed41b7ea92df95": {
+                "Name": "alpine4",
+                "EndpointID": "2bb63005cf4bcb037d644ab230023e65e8ee9e00cf4d98b3fcf9526c14790492",
+                "MacAddress": "02:42:ac:11:00:03",
+                "IPv4Address": "172.17.0.3/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+
+
+# 查看 bridge 的網路資訊
+docker network inspect alpine-net
+
+#result
+# alpine-net 分配到的 IP 為 172.17.0.1
+# 在 alpine-net 中 alpine1 分配到的 IP 為 172.17.0.2
+# 在 alpine-net 中 alpine2 分配到的 IP 為 172.17.0.3
+# 在 alpine-net 中 alpine4 分配到的 IP 為 172.17.0.3
+
 ```
 
 ![img2](https://godleon.github.io/blog/images/docker/docker-bridge-network-custom.png)
