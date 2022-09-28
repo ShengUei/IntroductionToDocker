@@ -12,8 +12,10 @@
 ### Host Driver 介紹:
 
 ```bash
-# --name 自定義 container 名字, -d(--detach) 讓 container 在背景執行, -p 9090:80 指定 host 的 9090 port 對應到該 cotainer 的 80 port
 docker container run --name webserver -d -p 9090:80 nginx
+# --name 自定義 container 名字
+# -d(--detach) 讓 container 在背景執行
+# -p 9090:80 指定 host 的 9090 port 對應到該 cotainer 的 80 port
 ````
 
 ![img0](https://miro.medium.com/max/720/1*6xUdGsh3ALVtcfvG5Q7VdQ.png)
