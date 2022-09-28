@@ -1,13 +1,13 @@
 # Docker網路介紹
 
 ### Docker提供幾種 Network driver 可以使用:
-* bridge(**常用***)
-* host(**常用**)
-* none
-* overlay
+* bridge(**常用**): 提供一個虛擬網卡，使包含在其底下的 containers 可以互相連線。
+* host(**常用**): 將主機的網段直接配給所指定的 container。  
+* none: 關閉該 container 的網路功能。
+* overlay: 讓不同主機上的 Docker 裡的 containers 可以互相透過網路連通。
 * ipvlan
 * macvlan
-* networ plugins
+* network plugins: 使用第三方工具。
 
 ![img1](https://godleon.github.io/blog/images/docker/docker-bridge-network-1.png)
 
