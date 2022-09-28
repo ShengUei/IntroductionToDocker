@@ -358,6 +358,13 @@ PING alpine4 (172.18.0.4): 56 data bytes
 64 bytes from 172.18.0.4: seq=0 ttl=64 time=0.145 ms
 64 bytes from 172.18.0.4: seq=1 ttl=64 time=0.102 ms
 
+# 測試由 alpine1 連線至 alpine3(IP: 172.17.0.2)
+# 由於 alpine4 接了兩個 network ，所以 bridge 與 alpine-net 可以透過 alpine4 來讓彼此的 container 互相連通
+ping -c 2 172.17.0.2
+PING 172.17.0.2 (172.17.0.2): 56 data bytes
+64 bytes from 172.17.0.2: seq=0 ttl=64 time=0.145 ms
+64 bytes from 172.17.0.2: seq=1 ttl=64 time=0.102 ms
+
 ```
 
 reference:
