@@ -107,6 +107,28 @@ docker network inspect bridge
 
 ![img1](https://godleon.github.io/blog/images/docker/docker-bridge-network-1.png)
 
+```bash
+# 在 alpine1 中，開啟一個可以互動的 ash(linux shell)
+docker exec -it alpine1 ash
+
+# 測試由 alpine1 連線至外部
+# -c 3 代表只 ping 3 次
+ping -c 3 www.google.com
+
+# result
+PING www.google.com (216.58.200.228): 56 data bytes
+64 bytes from 216.58.200.228: seq=0 ttl=54 time=2.112 ms
+64 bytes from 216.58.200.228: seq=1 ttl=54 time=2.166 ms
+64 bytes from 216.58.200.228: seq=2 ttl=54 time=2.417 ms
+
+# 測試由 alpine1 連線至 alpine2(IP: 172.17.0.3)
+ping -c 3 172.17.0.3
+PING 172.17.0.3 (172.17.0.3): 56 data bytes
+64 bytes from 172.17.0.3: seq=0 ttl=64 time=0.121 ms
+64 bytes from 172.17.0.3: seq=1 ttl=64 time=0.071 ms
+64 bytes from 172.17.0.3: seq=2 ttl=64 time=0.068 ms
+```
+
 #### 使用自訂的 bridge
 
 ```bash
