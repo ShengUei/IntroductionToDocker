@@ -9,6 +9,17 @@
 * macvlan: 自行設定 MAC。
 * network plugins: 使用第三方工具。
 
+```bash
+# 顯示當前有哪些 network
+docker network ls
+
+# 
+NETWORK ID          NAME                DRIVER              SCOPE
+a1c7b6f80389        bridge              bridge              local
+dc2f51e1056f        host                host                local
+f28460d3a620        none                null                local
+```
+
 ### Host Driver 介紹:
 
 ```bash
