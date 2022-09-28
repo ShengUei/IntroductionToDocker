@@ -1,6 +1,6 @@
 # Docker網路介紹
 
-### Docker提供幾種 Network driver 可以使用:
+### Docker提供幾種 Network Driver 可以使用:
 * host(**常用**): 將主機的網段直接配給所指定的 container。
 * bridge(**常用**): 提供一個虛擬網卡，使包含在其底下的 containers 可以互相連線。  
 * none: 關閉該 container 的網路功能。
@@ -9,7 +9,16 @@
 * macvlan: 自行設定 MAC。
 * network plugins: 使用第三方工具。
 
+### Host Driver 介紹:
+
+```bash
+# --name 自定義 container 名字, -d(--detach) 讓 container 在背景執行, -p 9090:80 指定 host 的 9090 port 對應到該 cotainer 的 80 port
+docker container run --name webserver -d -p 9090:80 nginx
+````
+
 ![img0](https://miro.medium.com/max/720/1*6xUdGsh3ALVtcfvG5Q7VdQ.png)
+
+### Bridge Driver 介紹:
 
 ![img1](https://godleon.github.io/blog/images/docker/docker-bridge-network-1.png)
 
