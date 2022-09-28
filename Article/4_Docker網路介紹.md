@@ -48,7 +48,7 @@ docker container run -dit --name alpine2 alpine ash
 docker network inspect bridge
 
 # result
-# host 連到 bridge 的 IP 為 172.17.0.1
+# bridge 分配到的 IP 為 172.17.0.1
 # 在 bridge 中 alpine1 分配到的 IP 為 172.17.0.2
 # 在 bridge 中 alpine2 分配到的 IP 為 172.17.0.3
 [
@@ -137,6 +137,52 @@ PING 172.17.0.3 (172.17.0.3): 56 data bytes
 ```bash
 # 建立自己的 network ，並指定 driver 為 bridge ，該 network 命名為 alpine-net
 docker network create --driver bridge alpine-net
+
+# 顯示當前有哪些 network
+docker network ls
+
+# result
+NETWORK ID          NAME                DRIVER              SCOPE
+2575acac8e78        alpine-net          bridge              local
+a1c7b6f80389        bridge              bridge              local
+dc2f51e1056f        host                host                local
+f28460d3a620        none                null                local
+
+# 查看 alpine-net 的網路資訊
+docker network inspect alpine-net
+
+# result
+# alpine-net 分配到的 IP 為 172.18.0.1
+[
+    {
+        "Name": "alpine-net",
+        "Id": "2575acac8e781004cb0dc5c5b020c0252a4bc4cdf18dfc661fe3ffcde30fd0b2",
+        "Created": "2018-07-09T03:05:05.505539609Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
 
 ```
 
