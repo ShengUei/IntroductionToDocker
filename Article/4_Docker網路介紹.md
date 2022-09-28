@@ -326,6 +326,40 @@ docker network inspect alpine-net
 
 ![img2](https://godleon.github.io/blog/images/docker/docker-bridge-network-custom.png)
 
+
+```bash
+# 在 alpine1 中，開啟一個可以互動的 ash(linux shell)
+docker exec -it alpine1 ash
+
+# 測試由 alpine1 連線至外部
+ping -c 2 www.google.com
+
+# result
+PING www.google.com (216.58.200.228): 56 data bytes
+64 bytes from 216.58.200.228: seq=0 ttl=54 time=2.112 ms
+64 bytes from 216.58.200.228: seq=1 ttl=54 time=2.166 ms
+
+# 測試由 alpine1 連線至 alpine2(IP: 172.18.0.3)
+ping -c 2 172.18.0.3
+PING 172.18.0.3 (172.18.0.3): 56 data bytes
+64 bytes from 172.18.0.3: seq=0 ttl=64 time=0.121 ms
+64 bytes from 172.18.0.3: seq=1 ttl=64 time=0.071 ms
+
+# 測試由 alpine1 連線至 alpine2(IP: 172.18.0.3)
+# 由於 alpine-net 為自訂的 network ， docker 可以透過 container name 來做連線
+ping -c 2 alpine2
+PING alpine2 (172.18.0.3): 56 data bytes
+64 bytes from 172.18.0.3: seq=0 ttl=64 time=0.095 ms
+64 bytes from 172.18.0.3: seq=1 ttl=64 time=0.076 ms
+
+# 測試由 alpine1 連線至 alpine4(IP: 172.18.0.4)
+ping -c 2 alpine4
+PING alpine4 (172.18.0.4): 56 data bytes
+64 bytes from 172.18.0.4: seq=0 ttl=64 time=0.145 ms
+64 bytes from 172.18.0.4: seq=1 ttl=64 time=0.102 ms
+
+```
+
 reference:
 1. https://docs.docker.com/network/
 2. https://docs.docker.com/network/network-tutorial-standalone/
