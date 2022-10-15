@@ -1,18 +1,12 @@
 version: "3.8"
 services:
   tomcat:
-    args:
-      - version:1.0
-    image: 
-      - tomcat:webapp
+    image: tomcat:8.5-jre8
     ports:
       - "8080:8080"
     volumes:
-      - .:/code
-      - logvolume01:/var/log
-    depends_on:
-      - redis
-  redis:
-    image: redis
-volumes:
-  logvolume01: {}
+      - type: bind
+        source: pwd/logs
+        target: /usr/local/tomcat/logs
+    command: chmod -R +r /usr/local/tomcat/logs
+    
