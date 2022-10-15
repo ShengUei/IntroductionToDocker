@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  tomcat:
+    args:
+      - version:1.0
+    image: 
+      - tomcat:webapp
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/code
+      - logvolume01:/var/log
+    depends_on:
+      - redis
+  redis:
+    image: redis
+volumes:
+  logvolume01: {}
