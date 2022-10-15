@@ -8,5 +8,5 @@ services:
       - type: bind
         source: ./logs
         target: /usr/local/tomcat/logs
-    command: chmod -R +r /usr/local/tomcat/logs
+    command: [sh, -c, "chmod -R +r /usr/local/tomcat/logs"]
     
