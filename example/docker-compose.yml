@@ -6,7 +6,7 @@ services:
       - "8080:8080"
     volumes:
       - type: bind
-        source: pwd/logs
+        source: ./logs
         target: /usr/local/tomcat/logs
     command: chmod -R +r /usr/local/tomcat/logs
     
