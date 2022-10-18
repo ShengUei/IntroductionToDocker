@@ -1,7 +1,7 @@
 #!/bin/bash
 
-LOGS_PATH=/home/docker/albert/IDG
-IMAGE=idg
+LOGS_PATH=/home/docker/
+IMAGE=my_image
 VERSION=latest
 WAIT_TIME=5
 
