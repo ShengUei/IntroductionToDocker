@@ -4,8 +4,19 @@ services:
     image: tomcat:8.5-jre8
     ports:
       - "8080:8080"
-    volumes:
-      - type: bind
-        source: ./logs
-        target: /usr/local/tomcat/logs
+        volumes:
+            # 利用 mount type=bind 方式
+            # - ./conf:/usr/local/tomcat/conf
+            # - ./logs:/usr/local/tomcat/logs
+            # - ./webapps:/usr/local/tomcat/webapps
+
+            # 利用 volume 方式
+            # - tomcat_conf:/usr/local/tomcat/conf
+            - tomcat_webapps:/usr/local/tomcat/webapps
+            - tomcat_logs:/usr/local/tomcat/logs
+volumes:
+    # tomcat_conf: # 在 host 建立 volume，等同於 docker create volume [name]
+    tomcat_webapps:
+    tomcat_logs:
+
     
