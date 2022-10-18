@@ -5,7 +5,6 @@ IMAGE=idg
 VERSION=latest
 WAIT_TIME=5
 
-
 if [[ "$(docker image inspect $IMAGE:$VERSION 2> /dev/null)" != "[]" ]]; then
     echo "Delete old image"
     docker image rm $IMAGE:$VERSION
