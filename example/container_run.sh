@@ -2,7 +2,7 @@
 
 LOGS_PATH=/home/docker/
 IMAGE=my_image
-VERSION=latest
+VERSION=$(date)
 WAIT_TIME=5
 
 docker compose down
