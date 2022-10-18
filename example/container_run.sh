@@ -2,7 +2,7 @@
 
 LOGS_PATH=/home/docker/
 IMAGE=my_image
-VERSION=$(date)
+VERSION=$(date +'%Y%d%m_%S')
 WAIT_TIME=5
 
 docker compose down
