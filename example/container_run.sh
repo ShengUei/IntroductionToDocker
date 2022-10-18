@@ -5,6 +5,8 @@ IMAGE=my_image
 VERSION=latest
 WAIT_TIME=5
 
+docker compose down
+
 if [[ "$(docker image inspect $IMAGE:$VERSION 2> /dev/null)" != "[]" ]]; then
     echo "Delete old image"
     docker image rm $IMAGE:$VERSION
@@ -20,8 +22,6 @@ fi
 
 echo "Create new logs directory"
 mkdir $LOGS_PATH/logs
-
-docker compose down
 
 echo "Run docker-compose"
 docker compose up -d
