@@ -4,19 +4,32 @@ services:
     image: tomcat:8.5-jre8
     ports:
       - "8080:8080"
-        volumes:
-            # 利用 mount type=bind 方式
-            # - ./conf:/usr/local/tomcat/conf
-            # - ./logs:/usr/local/tomcat/logs
-            # - ./webapps:/usr/local/tomcat/webapps
+    networks:
+      # 指定使用哪張網卡
+      - my_network
+    volumes:
+      # 利用 mount type=bind 方式
+      # - ./conf:/usr/local/tomcat/conf
+      # - ./logs:/usr/local/tomcat/logs
+      # - ./webapps:/usr/local/tomcat/webapps
 
-            # 利用 volume 方式
-            # - tomcat_conf:/usr/local/tomcat/conf
-            - tomcat_webapps:/usr/local/tomcat/webapps
-            - tomcat_logs:/usr/local/tomcat/logs
+      # 利用 volume 方式
+      # - tomcat_conf:/usr/local/tomcat/conf
+        - tomcat_webapps:/usr/local/tomcat/webapps
+        - tomcat_logs:/usr/local/tomcat/logs
 volumes:
     # tomcat_conf: # 在 host 建立 volume，等同於 docker create volume [name]
     tomcat_webapps:
     tomcat_logs:
+networks:
+    # 建立一張網卡且命名為 my_network
+    my_network:
+        driver: bridge
+        ipam:
+            driver: default
+            # 設定 IP 相關參數
+            config:
+                    - subnet: 172.18.0.0/16
+                      gateway: 172.18.0.1
 
     
