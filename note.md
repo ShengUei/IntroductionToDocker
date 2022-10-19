@@ -7,7 +7,7 @@
 
 ```ymal
       networks:
-            # 建立一張網卡且命名為 idg_network
+            # 建立一張網卡且命名為 my_network
             my_network:
             driver: bridge
             ipam:
