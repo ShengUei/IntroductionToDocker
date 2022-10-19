@@ -15,5 +15,5 @@
                   # 設定 IP 相關參數
                   config:
                         - subnet: 172.18.0.0/16
-                        gateway: 172.18.0.1
+                          gateway: 172.18.0.1
 ```
