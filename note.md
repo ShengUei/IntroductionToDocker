@@ -4,6 +4,8 @@
 
 2. docker compose up & down 每次會新增與刪除網卡，導致IP被卡(docker 每次新建網卡IP會遞增 ex: 第一次:172.18.0.1, 第二次:172.19.0.1, 第三次:172.20.0.1 ......)
       - 在 docker-compose.yml 寫死 IP 設定
+
+```ymal
       networks:
             # 建立一張網卡且命名為 idg_network
             my_network:
@@ -14,4 +16,4 @@
                   config:
                         - subnet: 172.18.0.0/16
                         gateway: 172.18.0.1
-
+```
