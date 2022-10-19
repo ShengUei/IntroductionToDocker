@@ -15,19 +15,15 @@ fi
 echo "Build new image"
 docker build -t $IMAGE:$VERSION -t $IMAGE:latest .
 
-if [ -d $LOGS_PATH/logs ]; then
-    echo "Delete old logs directory"
-    rm -r -f $LOGS_PATH/logs
+if [ ! -d $LOGS_PATH/logs ]; then
+    echo "Create logs directory"
+    mkdir $LOGS_PATH/logs
 fi
-
-echo "Create new logs directory"
-mkdir $LOGS_PATH/logs
 
 echo "Run docker-compose"
 docker compose up -d
 
 echo "Wait tomcat starting"
-
 while [ "$WAIT_TIME" != "0" ]
 do
     echo "$WAIT_TIME s"
