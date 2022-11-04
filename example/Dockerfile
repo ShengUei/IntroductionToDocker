@@ -3,6 +3,7 @@ ARG VERSION=8.5-jre8
 # 由 tomcat image(來源 Docker Hub) 開始建置
 FROM tomcat:$VERSION
 
+# 以指定的 user 起 container
 ARG USER_ID \
     GROUP_ID
 
