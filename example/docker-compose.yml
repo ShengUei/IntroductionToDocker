@@ -17,6 +17,10 @@ services:
       # - tomcat_conf:/usr/local/tomcat/conf
         - tomcat_webapps:/usr/local/tomcat/webapps
         - tomcat_logs:/usr/local/tomcat/logs
+      environment:
+                # 變更時區為Asia/Taipei
+                - TZ=Asia/Taipei
+      user: "${USER_ID}:${GROUP_ID}" # 利用指定的user去執行container
 volumes:
     # tomcat_conf: # 在 host 建立 volume，等同於 docker create volume [name]
     tomcat_webapps:
@@ -29,7 +33,7 @@ networks:
             driver: default
             # 設定 IP 相關參數
             config:
-                    - subnet: 172.18.0.0/16
+                    - subnet: 172.18.0.0/30 # 30: 子網路遮罩，172.18.0.0 ~ 172.18.0.4
                       gateway: 172.18.0.1
 
     
